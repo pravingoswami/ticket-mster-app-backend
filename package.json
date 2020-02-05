@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.8.5"
+    "mongoose": "^5.8.5",
+    "nodemailer": "^6.4.2",
+    "xoauth2": "^1.2.0"
   }
 }

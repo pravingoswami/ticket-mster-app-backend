@@ -1,5 +1,6 @@
 const express = require('express')
-const router = express.Router()
+
+const {ticketGeneratedMail, ticketResolveMail}  = require('../app/middlewares/customerMail')
 
 const customerController = require('../app/controllers/customerController')
 
@@ -9,10 +10,13 @@ const employeeController = require('../app/controllers/employeeController')
 
 const ticketController = require('../app/controllers/ticketController')
 
+const router = express.Router()
+
+
 router.get('/customers', customerController.list)
 router.post('/customers', customerController.create)
 router.get('/customers/:id', customerController.show)
-router.put('/customers/:id', customerController.update)
+router.put('/customers/:id',customerController.update)
 router.delete('/customers/:id', customerController.destroy)
 
 router.get('/departments', departmentController.list)
@@ -28,9 +32,9 @@ router.put('/employees/:id', employeeController.update)
 router.delete('/employees/:id', employeeController.destroy)
 
 router.get('/tickets', ticketController.list)
-router.post('/tickets', ticketController.create)
+router.post('/tickets',ticketGeneratedMail, ticketController.create)
 router.get('/tickets/:id', ticketController.show)
-router.put('/tickets/:id', ticketController.update)
+router.put('/tickets/:id',ticketResolveMail, ticketController.update)
 router.delete('/tickets/:id', ticketController.destroy)
 
 
