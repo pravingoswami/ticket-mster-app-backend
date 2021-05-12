@@ -12,7 +12,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.8.5",
-    "nodemailer": "^6.4.2",
+    "nodemailer": "^6.4.16",
     "xoauth2": "^1.2.0"
   }
 }
